@@ -1,5 +1,6 @@
 
 #include "./includes/header.h"
+#include <stdlib.h>
 
 int     main(int ac, char **av)
 {
@@ -61,7 +62,7 @@ int     main(int ac, char **av)
         ft_print(1, "  ", 1);
         while (index < 16)
         {
-            print_hex(file_content[index + (line * HEXSIZE)]);
+            print_hex(file_content[index + (line * HEXSIZE)], (line == len / HEXSIZE) ? 1 : 0);
             index++ == 7 ? ft_print(1, "  ", 1) : ft_print(1, " ", 0);
         }
         if (with_c == 1)
@@ -70,7 +71,7 @@ int     main(int ac, char **av)
             ft_print(1, " |", 1);
             while (index < 16)
             {
-                ft_print(1, &(file_content[index + (line * HEXSIZE)]), 0);
+                ft_print_text(1, &(file_content[index + (line * HEXSIZE)]), (line == len / HEXSIZE) ? 1 : 0);
                 index++;
             }
             ft_print(1, "|", 0);
@@ -80,5 +81,6 @@ int     main(int ac, char **av)
     }
     print_len_file(len);
     break_line_print();
+    free(file_content);
     return (0);
 }
