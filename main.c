@@ -55,6 +55,8 @@ int     main(int ac, char **av)
     while (line <= len / HEXSIZE)
     {
         index = 0;
+        if (line == len && file_content[index + (line * HEXSIZE)] == '\0')
+            break;
         print_address(address, line);
         ft_print(1, "  ", 1);
         while (index < 16)

@@ -7,7 +7,7 @@ void    ft_print(int type, char *str, int multi)
     {
         while (*str != '\0')
         {
-            if (*str == '\0' || *str == '\n' || *str == '\t' && type != 2)
+            if (*str == '\0' || *str == '\n' || *str == '\t' || *str >= 127 || *str <= 31 && type != 2)
             {
                 write(type, ".", 1);
             }
@@ -19,7 +19,7 @@ void    ft_print(int type, char *str, int multi)
     {
         if (*str != '\0')
         {
-            if (*str == '\0' || *str == '\n' || *str == '\t' && type != 2)
+            if (*str == '\0' || *str == '\n' || *str == '\t' || *str >= 127 || *str <= 31 && type != 2)
             {
                 write(type, ".", 1);
             }
